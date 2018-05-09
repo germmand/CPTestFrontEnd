@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+
+// Feature modules
+import { DashboardModule } from './feature/dashboard.module';
 
 
 @NgModule({
@@ -10,7 +14,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CoreModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
