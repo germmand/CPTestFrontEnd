@@ -16,6 +16,7 @@ import { routes } from '../routing/app.routes';
         })
     ],
     exports: [
+        BrowserAnimationsModule,
         RouterModule
     ]
 })
