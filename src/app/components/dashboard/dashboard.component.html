@@ -1,8 +1,38 @@
-<div class="button-row">
-    <button mat-raised-button>Basic</button>
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
-    <a mat-raised-button routerLink=".">Link</a>
+<div class="main-container">
+  <div class="inner-container">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Categories</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="table-container mat-elevation-z8">
+          <table mat-table [dataSource]="GetGridData()">
+              <ng-container matColumnDef="Name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element">
+                  <p>{{element.CategoryName}}</p>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="Products">
+                <th mat-header-cell *matHeaderCellDef> Products </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-raised-button (click)="OnGetAllProducts(element.CategoryId)">See all products</button>
+                </td>
+              </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                  <th mat-header-cell *matHeaderCellDef> Actions </th>
+                  <td mat-cell *matCellDef="let element">
+                    <button mat-button color="warn" (click)="OnDeleteCategory(element.CategoryId)">Delete</button>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="GetGridHeader()"></tr>
+                <tr mat-row *matRowDef="let row; columns: GetGridHeader();"></tr>
+            </table>
+          </div>
+      </mat-card-content>
+    </mat-card>
   </div>
+</div>

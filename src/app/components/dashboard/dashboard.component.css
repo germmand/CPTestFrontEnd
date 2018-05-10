@@ -1,0 +1,19 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.inner-container {
+    width: 40%;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    min-width: 300px;
+    overflow: auto;
+}
