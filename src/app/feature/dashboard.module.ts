@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 // Components
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { DashboardProductcomponent } from '../components/dashboardProduct/dashboard.product.component';
 
 // Modules
 import { CommonModule } from '@angular/common';
@@ -16,10 +17,12 @@ import { DashboardService } from '../services/dashboard.service';
         SharedModule
     ], 
     exports: [
-        DashboardComponent
+        DashboardComponent,
+        DashboardProductcomponent
     ],
     declarations: [
-        DashboardComponent
+        DashboardComponent,
+        DashboardProductcomponent
     ],
     providers: [
         DashboardService

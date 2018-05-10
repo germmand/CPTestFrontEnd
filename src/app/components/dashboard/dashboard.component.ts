@@ -4,6 +4,8 @@ import { IGridData } from '../../interfaces/IGridData';
 import { Category } from '../../models/Category';
 import { DashboardService } from '../../services/dashboard.service';
 
+import { Router } from '@angular/router';
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -12,7 +14,9 @@ import { DashboardService } from '../../services/dashboard.service';
 export class DashboardComponent implements IGridData<Category> {
     private CategoryData: Category[];
 
-    constructor(private dashboardService: DashboardService) {
+    constructor(
+        private dashboardService: DashboardService,
+        private router: Router) {
         this.CategoryData = [];
     }
 
@@ -36,7 +40,7 @@ export class DashboardComponent implements IGridData<Category> {
     // Row's events.
     //--------------
     OnGetAllProducts(categoryId: number) {
-        alert("Listed");
+        this.router.navigate(['/Products/' + categoryId]);
     }
 
     OnDeleteCategory(categoryId: number) {
