@@ -21,15 +21,15 @@
                 </td>
               </ng-container>
 
-                <ng-container matColumnDef="Actions">
-                  <th mat-header-cell *matHeaderCellDef> Actions </th>
-                  <td mat-cell *matCellDef="let element">
-                    <button mat-button color="warn" (click)="OnDeleteCategory(element.CategoryId)">Delete</button>
-                  </td>
-                </ng-container>
+              <ng-container matColumnDef="Actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                  <button mat-button color="warn" (click)="OnDeleteCategory(element.CategoryId)">Delete</button>
+                </td>
+              </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="GetGridHeader()"></tr>
-                <tr mat-row *matRowDef="let row; columns: GetGridHeader();"></tr>
+              <tr mat-header-row *matHeaderRowDef="GetGridHeader()"></tr>
+              <tr mat-row *matRowDef="let row; columns: GetGridHeader();"></tr>
             </table>
           </div>
       </mat-card-content>
