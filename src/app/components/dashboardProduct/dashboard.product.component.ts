@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { switchMap, concatMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 // Services
 import { DashboardService } from '../../services/dashboard.service';
@@ -24,6 +24,13 @@ export class DashboardProductcomponent {
     }
 
     ngOnInit() {
-        // Tomamos el id y hacemos una llamada a la API para almacenar la respuesta en category.
+        this.activatedRoute.paramMap.pipe(
+            // Acá habría que hacer validaciones.
+            // En caso de que el usuario modifique la URL y introduzca una categoría no válida.
+            switchMap(params => this.dashboardService.GetAllProducts(Number(params.get("id"))))
+        ).subscribe((category: Category) => {
+            // Category contiene los productos ya cargados.
+            this.category = category;
+        });
     }
 }
